@@ -1,0 +1,364 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+body {
+    background-color: #40B7AD;
+}
+body::-webkit-scrollbar {
+    width: 8px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50px;
+}
+body::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+body::-webkit-scrollbar-track {
+    background-color: #40B7AD;
+}
+h1 {
+    height: 120px;
+    width: 100%;
+    text-align: center;
+    line-height: 120px;
+    font-style: italic;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-size: 2.2rem;
+}
+main {
+    height: auto;
+    width: 90%;
+    margin-left: 5%;
+}
+main > div {
+    min-height: calc(90vh - 80px);
+    width: 50%;
+    float: left;
+    padding: 40px;
+}
+main .input {
+    /* background-color: brown; */
+    font-family: "Poppins", sans-serif;
+}
+main .input input[type="text"] {
+    width: 80%;
+    font-size: 1.1rem;
+    /* border: 2px solid black; */
+    border: none;
+    padding: 12px;
+    display: block;
+    border-radius: 10px;
+    margin-left: 10%;
+    margin-top: 8px;
+}
+main .input button {
+    font-size: 1.1rem;
+    padding: 12px 18px;
+    background-color: #f3a11f;
+    border: none;
+    margin-top: 15px;
+    margin-left: 10%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+main .input button:last-child {
+    background-color: #DEF2F0;
+    padding: 7px 15px;
+    margin-left: 10px;
+    transform: translateY(5px);
+}
+main .input button:last-child:hover,
+main .input button:last-child:focus {
+    background-color: #a8e7e1;
+}
+main .input button img {
+    width: 34px;
+    height: auto;
+}
+main .input button:hover,
+main .input button:focus {
+    background-color: #f39603;
+}
+main .todos {
+    height: calc(90vh - 80px);
+    overflow-y: auto;
+    /* background-color: rgb(145, 94, 17); */
+}
+main .todos::-webkit-scrollbar {
+    width: 8px;
+}
+main .todos::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50px;
+}
+main .todos::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+main .todos::-webkit-scrollbar-track {
+    background-color: #40B7AD;
+}
+main .todos .doing {
+    position: relative;
+    width: 90%;
+    margin-left: 5%;
+    background-color: #FBECDB;
+    padding: 5px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    /* animation-name: finished; */
+    /* animation-name: notFinished; */
+    /* animation-name: adding; */
+    animation-duration: 0.8s;
+    animation-timing-function: ease;
+    transition: transform 0.5s ease;
+}
+main .todos .doing .additional {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 100%;
+    /* background-color: rgba(3, 158, 3, 0.712); */
+    /* background-color: rgba(226, 3, 3, 0.555); */
+    border-radius: 5px;
+    z-index: 1;
+    /* animation-name: colorCorection; */
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-delay: 0;
+}
+main .todos .doing span {
+    font-size: 1.1rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    padding-left: 10px;
+    white-space: nowrap;
+    overflow-x: auto;
+    width: 60%;
+}
+main .todos .doing span::-webkit-scrollbar {
+    height: 5px;
+}
+main .todos .doing span::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50px;
+}
+main .todos .doing span::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+main .todos .doing span::-webkit-scrollbar-track {
+    background-color: #FBECDB;
+}
+main .todos .doing i[class*="fa"] {
+    position: absolute;
+    font-size: 1.4rem;
+    padding: 10px;
+    background-color: white;
+    border-radius: 50%;
+    /* border: 1px solid black; */
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+main .todos .doing i.fas {
+    color: red;
+    right: 9px;
+    padding: 10px 14px;
+}
+main .todos .doing i.fa {
+    color: green;
+    right: 63px;
+}
+main .todos .doing i[class*="fa"]:hover {
+    background-color: rgb(236, 236, 236);
+}
+.full {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 199;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-animation-duration: 0.6s;
+            animation-duration: 0.6s;
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
+    transition: opacity 0.6s ease;
+}
+.full .alert {
+    position: fixed;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 420px;
+    background-color: white;
+    min-height: 100px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px rgba(255, 255, 255, 0.4);
+    z-index: 200;
+}
+.full .alert .message {
+    font-size: 18px;
+    padding: 20px;
+}
+.full .alert .btn {
+    width: 100%;
+    height: 30px;
+}
+.full .alert .btn button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 30px;
+    background-color: darkgreen;
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    outline: none;
+    margin-top: 40px;
+}
+.full .alert button:hover, .alert button:focus {
+    background-color:  rgb(2, 138, 2);
+}
+@keyframes alert {
+    0% {
+        transform: translateY(-140px);
+    }
+    70% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes finished {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(80px);
+        opacity: 0;
+    }
+}
+@keyframes notFinished {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        transform: rotate(0);
+    }
+    10%, 50%, 90% {
+        transform: rotate(4deg);
+    }
+    30%, 70% {
+        transform: rotate(-4deg);
+    }
+}
+@keyframes colorCorection {
+    from {
+        right: 100%;
+    }
+    to {
+        right: 0;
+    }
+}
+@keyframes adding {
+    from {
+        transform: translateY(-80px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@media screen and (max-width: 1000px) {
+    main .input input[type="text"],
+    main .todos .doing {
+        width: 100%;
+    }
+    main {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 800px) {
+    main > div {
+        width: 90%;
+        min-height: auto;
+    }
+    main .input, main .todos {
+        margin-left: 5%;
+    }
+    main .input input[type="text"],
+    main .input button,
+    main .todos .doing {
+        margin-left: 0;
+    }
+    main .todos {
+        height: auto;
+    }
+}
+@media screen and (max-width: 600px) {
+    main > div {
+        width: 100%;
+    }
+    main .input, main .todos {
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 400px) {
+    h1 {
+        font-size: 1.8rem;
+        height: 80px;
+        line-height: 80px;
+    }
+    main > div {
+        padding: 20px;
+    }
+    main .input input[type="text"] {
+        font-size: 1rem;
+        padding: 8px;
+    }
+    main .input button {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+    main .todos .doing {
+        height: 46px;
+    }
+    main .todos .doing span {
+        font-size: 1rem;
+    }
+    main .todos .doing i[class*="fa"] {
+        font-size: 1.2rem;
+        padding: 8px;
+    }
+    main .todos .doing i.fas {
+        padding: 8px 12px;
+        right: 5px;
+    }
+    main .todos .doing i.fa {
+        right: 47px;
+    }
+    main .input button:last-child {
+        padding: 7px 13px;
+        transform: translateY(3px);
+    }
+    main .input button img {
+        width: 26px;
+    }
+}
